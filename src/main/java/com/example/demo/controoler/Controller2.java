@@ -1,14 +1,15 @@
 package com.example.demo.controoler;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Controller2 {
 	
-	@GetMapping(value = "/hello2")
-	public String hello2() {
-		return "Message From Order Service";
+	@GetMapping(value = "/orderDetails/{orderID}")
+	public String hello2(@PathVariable("orderID")String orderID) {
+		return "OrderDetails of order with Id :"+orderID;
 		
 	}
 
