@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order
+spec:
+  selector:
+    matchLabels:
+      app: ord
+  template:
+    metadata:
+      labels:
+        app: ord
+    spec:
+      containers:
+      - name: order
+        image: vishwanathk1222/orderservice:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 1111
+      imagePullSecrets:
+      - name: regcred
